@@ -16,7 +16,7 @@ export default {
       message: {
         from: '',
         text: '',
-        sentAt: null
+        createdAt: null
       }
     };
   },
@@ -27,12 +27,6 @@ export default {
     disconnect: function() {
       console.log("Disconnected");
     },
-    createEmail: function() {
-      console.log('Email Created');
-    },
-    customEmit: function(val){
-      console.log('Email Created');
-    },
     createMessage: function() {
     },
     newMessage: function(message) {
@@ -41,7 +35,6 @@ export default {
   },
   methods: {
     onCreateMessage: function() {
-      this.message.sentAt = new Date(new Date().getTime()).toUTCString();
       this.$socket.emit('createMessage', this.message);
     }
   }
